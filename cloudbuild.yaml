@@ -6,7 +6,7 @@ steps:
     - '-d'
     - '-r'
     - 'dags'
-    - 'gs://${us-central1-bcicomposerairf-28a4bd51-bucket}/dags'
+    - 'gs://$us-central1-bcicomposerairf-28a4bd51-bucket/dags'
 
 - name: gcr.io/cloud-builders/gsutil
   args:
@@ -15,7 +15,7 @@ steps:
     - '-d'
     - '-r'
     - 'plugins'
-    - 'gs://${us-central1-bcicomposerairf-28a4bd51-bucket}/plugins'
+    - 'gs://$us-central1-bcicomposerairf-28a4bd51-bucket/plugins'
 
 options:
   logging: CLOUD_LOGGING_ONLY
