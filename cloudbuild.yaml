@@ -1,23 +1,40 @@
 steps:
-- name: gcr.io/vocal-booth-378619/gsutil
-  args:
-    - '-m'
-    - 'rsync'
-    - '-d'
-    - '-r'
-    - 'dags'
-    - 'gs://${us-central1-bcicomposerairf-28a4bd51-bucket}/dags'
+- name: ubuntu
+  args: ['bash', '-c', "echo '$COMMIT_SHA' > REVISION.txt"]
+# - name: gcr.io/cloud-builders/gsutil
+#   args:
+#     - '-m'
+#     - 'rsync'
+#     - '-d'
+#     - '-r'
+#     - 'dags'
+#     - 'gs://${_GCS_BUCKET}/dags'
+# - name: gcr.io/cloud-builders/gsutil
+#   args:
+#     - '-m'
+#     - 'rsync'
+#     - '-d'
+#     - '-r'
+#     - 'plugins'
+#     - 'gs://${_GCS_BUCKET}/plugins'
 
-- name: gcr.io/vocal-booth-378619/gsutil
-  args:
-    - '-m'
-    - 'rsync'
-    - '-d'
-    - '-r'
-    - 'plugins'
-    - 'gs://${us-central1-bcicomposerairf-28a4bd51-bucket}/plugins'
+# steps:
+# - name: gcr.io/vocal-booth-378619/gsutil
+#   args:
+#     - '-m'
+#     - 'rsync'
+#     - '-d'
+#     - '-r'
+#     - 'dags'
+#     - 'gs://${us-central1-bcicomposerairf-28a4bd51-bucket}/dags'
 
-options:
-  logging: CLOUD_LOGGING_ONLY
+# - name: gcr.io/vocal-booth-378619/gsutil
+#   args:
+#     - '-m'
+#     - 'rsync'
+#     - '-d'
+#     - '-r'
+#     - 'plugins'
+#     - 'gs://${us-central1-bcicomposerairf-28a4bd51-bucket}/plugins'
 
     
