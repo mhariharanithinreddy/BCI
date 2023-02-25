@@ -1,5 +1,5 @@
 steps:
-- name: gcr.io/vocal-booth-378619/gsutil
+- name: gcr.io/cloud-builders/gsutil
   args:
     - '-m'
     - 'rsync'
@@ -8,7 +8,7 @@ steps:
     - 'dags'
     - 'gs://${us-central1-bcicomposerairf-28a4bd51-bucket}/dags'
 
-- name: gcr.io/vocal-booth-378619/gsutil
+- name: gcr.io/cloud-builders/gsutil
   args:
     - '-m'
     - 'rsync'
