@@ -17,7 +17,7 @@ steps:
     - 'plugins'
     - 'gs://${_GCS_BUCKET}/plugins'
 
-# options:
-#   logging: CLOUD_LOGGING_ONLY
+options:
+  logging: CLOUD_LOGGING_ONLY
 
     
