@@ -1,23 +1,20 @@
 steps:
-- name: gcr.io/cloud-builders/gsutil
-  args:
-    - '-m'
-    - 'rsync'
-    - '-d'
-    - '-r'
-    - 'dags'
-    - 'us-central1-bcicomposerairf-28a4bd51-bucket/dags'
+  # install dependencies
+  - name: python:3.8-slim
+    entrypoint: pip
+    args: ["install", "-r", "requirements.txt", "-c", "constraints.txt", "--user"]
 
-- name: gcr.io/cloud-builders/gsutil
-  args:
-    - '-m'
-    - 'rsync'
-    - '-d'
-    - '-r'
-    - 'plugins'
-    - 'us-central1-bcicomposerairf-28a4bd51-bucket/plugins'
+  - name: python:3.8-slim
+    entrypoint: pip
+    args: ["install", "-r", "requirements-test.txt", "--user"]
 
-options:
-  logging: CLOUD_LOGGING_ONLY
+  # run in python 3.8 which is latest version in Cloud Composer
+  - name: python:3.8-slim
+    entrypoint: python3.8
+    args: ["-m", "pytest", "-s", "dags/"]
 
-    
+
+  # run
+  - name: python
+    entrypoint: python
+    args: ["composer/cicd_sample/utils/add_dags_to_composer.py", "--dags_directory=${dags/}", "--dags_bucket=${us-central1-bcicomposerairf-28a4bd51-bucket}"]
