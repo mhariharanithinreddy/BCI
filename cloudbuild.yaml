@@ -17,7 +17,7 @@ steps:
     - 'plugins'
     - 'gs://${us-central1-bcicomposerairf-28a4bd51-bucket}/plugins'
 
-# options:
-#   logging: CLOUD_LOGGING_ONLY
+options:
+  logging: CLOUD_LOGGING_ONLY
 
     
